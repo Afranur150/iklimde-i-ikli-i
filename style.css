@@ -1,0 +1,67 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #eef7ee;
+    color: #203020;
+}
+
+nav {
+    background: #1f6f43;
+    padding: 20px;
+    text-align: center;
+}
+
+nav h2 {
+    color: white;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 10px;
+}
+
+.hero {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.question,
+.result {
+    background: white;
+    padding: 25px;
+    margin: 20px 0;
+    border-radius: 12px;
+}
+
+input {
+    display: block;
+    margin: 12px 0;
+    padding: 12px;
+    width: 90%;
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 15px;
+    border: 1px solid #ccc;
+}

@@ -1,0 +1,123 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sonuçlar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #e8f5e9;
+            color: #263238;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+
+        .result {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .result h2 {
+            color: #2e7d32;
+        }
+
+        .empty {
+            background-color: white;
+            padding: 30px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+        .back {
+            display: block;
+            width: fit-content;
+            margin: 25px auto;
+            padding: 12px 25px;
+            background-color: #388e3c;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+        }
+
+        .back:hover {
+            background-color: #1b5e20;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>📊 Sonuçlar</h1>
+    <p>Karbon ayak izi kayıtları</p>
+</header>
+
+<div class="container">
+
+    {% if results %}
+
+        {% for result in results %}
+
+        <div class="result">
+
+            <h2>👤 {{ result[1] }}</h2>
+
+            <p>
+                🌱 <strong>Karbon Ayak İzi:</strong>
+                {{ "%.2f"|format(result[2]) }}
+            </p>
+
+            <p>
+                🧠 <strong>Quiz Skoru:</strong>
+                {{ result[3] }}
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <div class="empty">
+
+            <h2>📭 Henüz sonuç yok.</h2>
+
+            <p>
+                Önce karbon ayak izinizi hesaplayarak
+                bir sonuç oluşturabilirsiniz.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+    <a class="back" href="/">
+        🏠 Ana Sayfaya Dön
+    </a>
+
+</div>
+
+</body>
+
+</html>
+```

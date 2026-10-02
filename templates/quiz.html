@@ -1,0 +1,229 @@
+```html
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>İklim Değişikliği Quiz</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #e8f5e9;
+            color: #263238;
+        }
+
+        header {
+            background-color: #2e7d32;
+            color: white;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px;
+        }
+
+        .question {
+            background-color: white;
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .question h2 {
+            color: #2e7d32;
+            font-size: 20px;
+        }
+
+        label {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        label:hover {
+            background-color: #e8f5e9;
+        }
+
+        input {
+            margin-right: 10px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background-color: #388e3c;
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1b5e20;
+        }
+
+        .result {
+            background-color: #c8e6c9;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #2e7d32;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>🧠 İklim Değişikliği Quiz</h1>
+    <p>Bilgilerini test et!</p>
+</header>
+
+<div class="container">
+
+    {% if score is not none %}
+    <div class="result">
+        <h2>🎉 Quiz Tamamlandı!</h2>
+        <h1>{{ score }} / 5</h1>
+
+        {% if score == 5 %}
+            <p>🌟 Harika! Tüm soruları doğru yaptın!</p>
+        {% elif score >= 3 %}
+            <p>👏 Güzel! İklim değişikliği hakkında iyi bilgiye sahipsin.</p>
+        {% else %}
+            <p>🌱 Biraz daha bilgi edinerek skorunu geliştirebilirsin!</p>
+        {% endif %}
+    </div>
+    {% endif %}
+
+    <form method="POST">
+
+        <div class="question">
+            <h2>1️⃣ İklim değişikliğinin önemli nedenlerinden biri nedir?</h2>
+
+            <label>
+                <input type="radio" name="q1" value="a" required>
+                Okyanusların varlığı
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="b">
+                Sera gazlarının artması
+            </label>
+
+            <label>
+                <input type="radio" name="q1" value="c">
+                Gece ve gündüzün oluşması
+            </label>
+        </div>
+
+        <div class="question">
+            <h2>2️⃣ Aşağıdakilerden hangisi yenilenebilir enerji kaynağıdır?</h2>
+
+            <label>
+                <input type="radio" name="q2" value="a" required>
+                Güneş enerjisi
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="b">
+                Kömür
+            </label>
+
+            <label>
+                <input type="radio" name="q2" value="c">
+                Petrol
+            </label>
+        </div>
+
+        <div class="question">
+            <h2>3️⃣ Ağaçların korunması neden önemlidir?</h2>
+
+            <label>
+                <input type="radio" name="q3" value="a" required>
+                Daha fazla plastik üretmek için
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="b">
+                Daha fazla enerji tüketmek için
+            </label>
+
+            <label>
+                <input type="radio" name="q3" value="c">
+                Karbondioksitin emilmesine yardımcı oldukları için
+            </label>
+        </div>
+
+        <div class="question">
+            <h2>4️⃣ Hangisi enerji tasarrufuna yardımcı olur?</h2>
+
+            <label>
+                <input type="radio" name="q4" value="a" required>
+                Gereksiz yere ışıkları açık bırakmak
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="b">
+                Kullanılmayan elektronik cihazları kapatmak
+            </label>
+
+            <label>
+                <input type="radio" name="q4" value="c">
+                Daha fazla elektrik kullanmak
+            </label>
+        </div>
+
+        <div class="question">
+            <h2>5️⃣ Hangisi çevreye yardımcı olan bir davranıştır?</h2>
+
+            <label>
+                <input type="radio" name="q5" value="a" required>
+                Geri dönüşüm yapmak
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="b">
+                Çöpleri doğaya atmak
+            </label>
+
+            <label>
+                <input type="radio" name="q5" value="c">
+                Suyu gereksiz yere kullanmak
+            </label>
+        </div>
+
+        <button type="submit">
+            ✅ Quiz'i Bitir
+        </button>
+
+    </form>
+
+    <a class="back" href="/">
+        🏠 Ana Sayfaya Dön
+    </a>
+
+</div>
+
+</body>
+</html>
+```
